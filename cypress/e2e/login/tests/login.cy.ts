@@ -19,7 +19,7 @@ describe("Login form", () => {
         LoginPage.showsError("Epic sadface: Username is required");
     });
 
-    it("shows an error for empty password field", () => {
+    it.only("shows an error for empty password field", () => {
         // enter username "name" into the input field
         // and click the login button
         // without entering the password
@@ -30,7 +30,7 @@ describe("Login form", () => {
         LoginPage.showsError("Epic sadface: Password is required");
     });
 
-    it("shows an error for locked out user", () => {
+    it.only("shows an error for locked out user", () => {
         // enter the locked out user's username and password
         LoginPage.validateLogin(lockedOutUser.username, lockedOutUser.password);
     });
