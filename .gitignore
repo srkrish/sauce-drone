@@ -1,0 +1,8 @@
+# Environment files
+cypress.env.json
+
+# Dependency directories
+node_modules/
+
+# Prettier configuration
+.prettierrc

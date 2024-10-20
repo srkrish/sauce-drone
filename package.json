@@ -1,0 +1,16 @@
+{
+  "name": "sauce_drone",
+  "version": "1.0.0",
+  "description": "saucedemo tests for droneshield",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "srkrish",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "cypress": "^13.15.0",
+    "typescript": "^5.5.3"
+  }
+}
