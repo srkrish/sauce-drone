@@ -35,7 +35,7 @@ describe("Login form", () => {
         LoginPage.validateLogin(lockedOutUser.username, lockedOutUser.password);
     });
 
-    it.only("routes to inventory page for a standard user", () => {
+    it("routes to inventory page for a standard user", () => {
         // enter the standard user's username and password
         LoginPage.validateLogin(standardUser.username, standardUser.password);
     });
