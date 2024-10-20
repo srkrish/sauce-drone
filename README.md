@@ -2,38 +2,6 @@
 
 This project contains end-to-end tests for (https://www.saucedemo.com/v1) using Cypress. The tests cover various functionalities such as login and product list validation.
 
-## Project Structure
-
-```
-.github/
-	workflows/
-		cypress-github-actions.yml
-.gitignore
-.prettierrc
-cypress/
-	e2e/
-		login/
-			page/
-				login.page.ts
-			tests/
-				login.cy.ts
-		ProductList/
-			page/
-				productList.page.ts
-			tests/
-				productList.cy.ts
-	fixtures/
-		inventory.json
-	screenshots/
-	support/
-		commands.ts
-		e2e.ts
-cypress.config.ts
-cypress.env.json
-package.json
-tsconfig.json
-```
-
 ## Setup
 
 1. **Clone the repository**:
