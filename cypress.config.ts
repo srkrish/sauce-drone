@@ -21,6 +21,22 @@ export default defineConfig({
                     password:
                         process.env.LOCKEDOUT_PASSWORD ||
                         config.env.users?.lockedOut.password
+                },
+                problem: {
+                    username:
+                        process.env.PROBLEM_USERNAME ||
+                        config.env.users?.problem.username,
+                    password:
+                        process.env.PROBLEM_PASSWORD ||
+                        config.env.users?.problem.password
+                },
+                glitch: {
+                    username:
+                        process.env.GLITCH_USERNAME ||
+                        config.env.users?.glitch.username,
+                    password:
+                        process.env.GLITCH_PASSWORD ||
+                        config.env.users?.glitch.password
                 }
             };
 
