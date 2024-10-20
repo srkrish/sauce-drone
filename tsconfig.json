@@ -10,7 +10,8 @@
       "esModuleInterop": true,                   // Allow default imports from commonJS modules
       "skipLibCheck": true,                      // Skip type checking of declaration files
       "forceConsistentCasingInFileNames": true,  // Ensure file names have consistent casing
-      "noImplicitAny": false                     // Disable implicit 'any' errors
+      "noImplicitAny": false,                    // Disable implicit 'any' errors
+      "resolveJsonModule": true                  // Allow importing JSON files
     },
     "include": [
       "cypress/**/*.ts",                         // Include all Cypress test files
