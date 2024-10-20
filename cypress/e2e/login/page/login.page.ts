@@ -1,4 +1,4 @@
-// cypress/e2e/login.page.js
+// cypress/e2e/login/page/login.page.ts
 
 export const LoginPage = {
     getUsername() {
