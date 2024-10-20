@@ -19,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         env:
           # Pass environment variables from GitHub Secrets
           STANDARD_USERNAME: ${{ secrets.STANDARD_USERNAME }}
