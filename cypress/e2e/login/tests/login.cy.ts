@@ -19,7 +19,7 @@ describe("Login form", () => {
         LoginPage.showsError("Epic sadface: Username is required");
     });
 
-    it.only("shows an error for empty password field", () => {
+    it("shows an error for empty password field", () => {
         // enter username "name" into the input field
         // and click the login button
         // without entering the password
@@ -30,12 +30,12 @@ describe("Login form", () => {
         LoginPage.showsError("Epic sadface: Password is required");
     });
 
-    it.only("shows an error for locked out user", () => {
+    it("shows an error for locked out user", () => {
         // enter the locked out user's username and password
         LoginPage.validateLogin(lockedOutUser.username, lockedOutUser.password);
     });
 
-    it.only("routes to inventory page for a standard user", () => {
+    it("routes to inventory page for a standard user", () => {
         // enter the standard user's username and password
         LoginPage.login(standardUser.username, standardUser.password);
     });
