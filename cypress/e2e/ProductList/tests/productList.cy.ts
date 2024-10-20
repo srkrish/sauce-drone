@@ -11,7 +11,45 @@ describe("Product list", () => {
     });
 
     it("displays and validates the product list", () => {
+        // go to the inventory page
         cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
         ProductListPage.validateProductList(items);
+    });
+
+    it("sorts the product list by name ascending", () => {
+        // go to the inventory page
+        cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
+        ProductListPage.validateProductList(items);
+        // sort the product list by name
+        ProductListPage.validateSort("Name (A to Z)");
+    });
+
+    it("sorts the product list by name descending", () => {
+        // go to the inventory page
+        cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
+        ProductListPage.validateProductList(items);
+        // sort the product list by name
+        ProductListPage.validateSort("Name (Z to A)");
+    });
+
+    it("sorts the product list by Price ascending", () => {
+        // go to the inventory page
+        cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
+        ProductListPage.validateProductList(items);
+        // sort the product list by name
+        ProductListPage.validateSort("Price (low to high)");
+    });
+
+    it("sorts the product list by Price descending", () => {
+        // go to the inventory page
+        cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
+        ProductListPage.validateProductList(items);
+        // sort the product list by name
+        ProductListPage.validateSort("Price (high to low)");
     });
 });
