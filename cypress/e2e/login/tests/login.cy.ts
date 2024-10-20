@@ -39,6 +39,4 @@ describe("Login form", () => {
         // enter the standard user's username and password
         LoginPage.login(standardUser.username, standardUser.password);
     });
-
-    //warning: in the working copy of 'cypress.config.ts', LF will be replaced by CRLF the next time Git touches it
 });
