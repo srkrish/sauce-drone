@@ -30,5 +30,3 @@ jobs:
           PROBLEM_PASSWORD: ${{ secrets.PROBLEM_PASSWORD }}
           GLITCH_USERNAME: ${{ secrets.GLITCH_USERNAME }}
           GLITCH_PASSWORD: ${{ secrets.GLITCH_PASSWORD }}
-        with:
-          browser: chrome
