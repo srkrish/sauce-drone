@@ -3,6 +3,8 @@ import { defineConfig } from "cypress";
 export default defineConfig({
     e2e: {
         baseUrl: "https://www.saucedemo.com",
+        experimentalMemoryManagement: true,
+        numTestsKeptInMemory: 5,
         setupNodeEvents(on, config) {
             // Load any environment variables from process.env (CI)
             const usersFromEnv = {
