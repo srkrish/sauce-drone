@@ -1,10 +1,9 @@
 import { defineConfig } from "cypress";
 
 export default defineConfig({
+    pageLoadTimeout: 6000,
     e2e: {
-        baseUrl: "https://www.saucedemo.com",
-        experimentalMemoryManagement: true,
-        numTestsKeptInMemory: 5,
+        baseUrl: "https://www.saucedemo.com/v1",
         setupNodeEvents(on, config) {
             // Load any environment variables from process.env (CI)
             const usersFromEnv = {
@@ -46,6 +45,8 @@ export default defineConfig({
             config.env.users = usersFromEnv;
 
             return config;
-        }
+        },
+        viewportHeight: 1080,
+        viewportWidth: 1920
     }
 });
