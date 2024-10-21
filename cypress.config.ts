@@ -2,6 +2,7 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
     pageLoadTimeout: 6000,
+    scrollBehavior: "top",
     e2e: {
         baseUrl: "https://www.saucedemo.com/v1",
         setupNodeEvents(on, config) {
