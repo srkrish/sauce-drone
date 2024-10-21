@@ -45,10 +45,19 @@ export class CheckoutPage {
         return cy.contains('.btn_action.cart_button', 'FINISH');
     }
 
+    public getCheckoutCompleteHeader(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get('.complete-header');
+    }
+
+    public getCheckoutCompleteText(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get('.complete-text');
+    }
+
     public completeCheckout(firstName: string, lastName: string, postalCode: string){
         this.getFirstName().type(firstName);
         this.getLastName().type(lastName);
         this.getPostalCode().type(postalCode);
         this.clickContinue();
+        this.clickFinishButton();
     }
 }
