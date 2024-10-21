@@ -3,50 +3,52 @@
 import { ProductListPage } from "../../ProductList/page/productList.page";
 import { Product } from "../../ProductList/page/productList.page";
 
-export const ProductDetailsPage = {
-    getProductName() {
+export class ProductDetailsPage {
+    getProductName(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(".inventory_details_name");
-    },
-    getProductDescription() {
+    }
+
+    getProductDescription(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(".inventory_details_desc");
-    },
-    getProductPrice() {
+    }
+
+    getProductPrice(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(".inventory_details_price");
-    },
-    getAddToCartButton() {
+    }
+
+    getAddToCartButton(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.contains(".btn_primary.btn_inventory", "ADD TO CART");
-    },
-    getRemoveFromCart() {
+    }
+
+    getRemoveFromCart(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.contains(".btn_secondary.btn_inventory", "REMOVE");
-    },
-    getBackButton() {
+    }
+
+    getBackButton(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(".inventory_details_back_button");
-    },
-    getCart() {
+    }
+
+    getCart(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get("#shopping_cart_container");
-    },
+    }
+
     validateProductDetails(items: Product[]) {
         items.forEach((item) => {
             cy.log(`**validate product details for ${item.name}**`);
             ProductListPage.clickProduct(item.name);
-            ProductDetailsPage.getProductName().should("have.text", item.name);
-            ProductDetailsPage.getProductDescription().should(
-                "have.text",
-                item.desc
-            );
-            ProductDetailsPage.getProductPrice().should(
-                "have.text",
-                `$${item.price}`
-            );
-            ProductDetailsPage.getAddToCartButton().should("be.visible");
-            ProductDetailsPage.getBackButton().click();
+            this.getProductName().should("have.text", item.name);
+            this.getProductDescription().should("have.text", item.desc);
+            this.getProductPrice().should("have.text", `$${item.price}`);
+            this.getAddToCartButton().should("be.visible");
+            this.getBackButton().click();
         });
-    },
+    }
+
     validateAddToCart(productName: string) {
         cy.log("**validate add to cart**");
         ProductListPage.clickProduct(productName);
-        ProductDetailsPage.getAddToCartButton().click();
-        ProductDetailsPage.getAddToCartButton().should("not.exist");
-        ProductDetailsPage.getRemoveFromCart().should("be.visible");
-    },
-};
+        this.getAddToCartButton().click();
+        this.getAddToCartButton().should("not.exist");
+        this.getRemoveFromCart().should("be.visible");
+    }
+}
