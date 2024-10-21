@@ -4,6 +4,10 @@ import { ProductListPage } from "../../ProductList/page/productList.page";
 import { Product } from "../../ProductList/page/productList.page";
 
 export class ProductDetailsPage {
+    public visit(){
+        return cy.visit('/inventory.html');
+    }
+
     getProductName(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(".inventory_details_name");
     }
@@ -33,6 +37,7 @@ export class ProductDetailsPage {
     }
 
     validateProductDetails(items: Product[]) {
+        this.visit();
         items.forEach((item) => {
             cy.log(`**validate product details for ${item.name}**`);
             ProductListPage.clickProduct(item.name);
@@ -45,6 +50,7 @@ export class ProductDetailsPage {
     }
 
     validateAddToCart(productName: string) {
+        this.visit();
         cy.log("**validate add to cart**");
         ProductListPage.clickProduct(productName);
         this.getAddToCartButton().click();
