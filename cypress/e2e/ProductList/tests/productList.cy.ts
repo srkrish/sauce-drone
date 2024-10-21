@@ -52,4 +52,31 @@ describe("Product list", () => {
         // sort the product list by name
         ProductListPage.validateSort("Price (high to low)");
     });
+
+    it("validates add product to the cart", () => {
+        // go to the inventory page
+        cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
+        ProductListPage.validateProductList(items);
+        // add a product to the cart
+        ProductListPage.valildateAddToCart(items);
+        ProductListPage.getCart()
+            .find(".shopping_cart_badge")
+            .scrollIntoView()
+            .should("have.text", "6");
+    });
+
+    it("validates remove product from the cart", () => {
+        // go to the inventory page
+        cy.visit("/inventory.html");
+        // validate the product list with the items from the fixture
+        ProductListPage.validateProductList(items);
+        // add a product to the cart
+        ProductListPage.valildateAddToCart(items);
+        // remove a product from the cart
+        ProductListPage.validateRemoveFromCart(items);
+        ProductListPage.getCart()
+            .find(".shopping_cart_badge")
+            .should("not.exist");
+    });
 });

@@ -1,7 +1,7 @@
 // cypress/e2e/ProductList/page/productList.page.ts
 
 // Define the interface for the product
-interface Product {
+export interface Product {
     name: string;
     desc: string;
     price: number;
@@ -12,7 +12,22 @@ export const ProductListPage = {
         return cy.get(".inventory_item");
     },
     getCart() {
-        return cy.get("shopping_cart_container");
+        return cy.get("#shopping_cart_container");
+    },
+    getAddToCartButton() {
+        return cy.contains(".btn_primary.btn_inventory", "ADD TO CART");
+    },
+    getRemoveFromCart() {
+        return cy.contains(".btn_secondary.btn_inventory", "REMOVE");
+    },
+    getProduct(productName: string) {
+        return cy.contains(".inventory_item", productName);
+    },
+    clickProduct(productName: string) {
+        cy.log(`**click product: ${productName}**`);
+        ProductListPage.getProduct(productName)
+            .contains(".inventory_item_name", productName)
+            .click();
     },
     validateProductList(items: Product[]) {
         cy.log("**validate product list**");
@@ -67,6 +82,26 @@ export const ProductListPage = {
 
             // Validate that the displayed products are sorted correctly
             cy.wrap(productArray).should("deep.equal", sortedArray);
+        });
+    },
+    valildateAddToCart(items: Product[]) {
+        items.forEach((item) => {
+            cy.log(`**add to cart: ${item.name}**`);
+            ProductListPage.getProduct(item.name).within(() => {
+                ProductListPage.getAddToCartButton().click();
+                ProductListPage.getAddToCartButton().should("not.exist");
+                ProductListPage.getRemoveFromCart().should("be.visible");
+            });
+        });
+    },
+    validateRemoveFromCart(items: Product[]) {
+        items.forEach((item) => {
+            cy.log(`**remove from cart: ${item.name}**`);
+            ProductListPage.getProduct(item.name).within(() => {
+                ProductListPage.getRemoveFromCart().click();
+                ProductListPage.getRemoveFromCart().should("not.exist");
+                ProductListPage.getAddToCartButton().should("be.visible");
+            });
         });
     }
 };
