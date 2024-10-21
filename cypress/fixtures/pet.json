@@ -1,0 +1,18 @@
+{
+    "id": 9102260448,
+    "category": {
+        "id": 1,
+        "name": "Dinosaur"
+    },
+    "name": "Tyranno",
+    "photoUrls": [
+        "https://example.com/images/tyranno.jpg"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "Carnivore"
+        }
+    ],
+    "status": "available"
+}
